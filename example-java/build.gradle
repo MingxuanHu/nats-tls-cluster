@@ -1,0 +1,10 @@
+apply plugin: 'java-library'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("io.nats:jnats:2.4.1")
+}
+
