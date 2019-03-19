@@ -1,0 +1,43 @@
+version: "3"
+services:
+  nats1:
+    image: nats:latest
+    hostname: nats1
+    command: "-c /tls.conf"
+    volumes:
+      - "~/nats/nats-tls-cluster/tls.conf:/tls.conf"
+      - "~/nats/nats-tls-cluster/certs/server.pem:/certs/server.pem"
+      - "~/nats/nats-tls-cluster/certs/server-key.pem:/certs/server-key.pem"
+      - "~/nats/nats-tls-cluster/certs/ca.pem:/certs/ca.pem"
+      - "~/nats/nats-tls-cluster/certs/route.pem:/certs/route.pem"
+      - "~/nats/nats-tls-cluster/certs/route-key.pem:/certs/route-key.pem"
+    ports:
+      - "4222:4222"
+      - "6222:6222"
+      - "8222:8222"
+  nats2:
+    image: nats:latest
+    hostname: nats2
+    command: "-c /tls.conf"
+    volumes:
+      - "~/nats/nats-tls-cluster/tls.conf:/tls.conf"
+      - "~/nats/nats-tls-cluster/certs/server.pem:/certs/server.pem"
+      - "~/nats/nats-tls-cluster/certs/server-key.pem:/certs/server-key.pem"
+      - "~/nats/nats-tls-cluster/certs/ca.pem:/certs/ca.pem"
+      - "~/nats/nats-tls-cluster/certs/route.pem:/certs/route.pem"
+      - "~/nats/nats-tls-cluster/certs/route-key.pem:/certs/route-key.pem"
+  nats3:
+    image: nats:latest
+    hostname: nats3
+    command: "-c /tls.conf"
+    volumes:
+      - "~/nats/nats-tls-cluster/tls.conf:/tls.conf"
+      - "~/nats/nats-tls-cluster/certs/server.pem:/certs/server.pem"
+      - "~/nats/nats-tls-cluster/certs/server-key.pem:/certs/server-key.pem"
+      - "~/nats/nats-tls-cluster/certs/ca.pem:/certs/ca.pem"
+      - "~/nats/nats-tls-cluster/certs/route.pem:/certs/route.pem"
+      - "~/nats/nats-tls-cluster/certs/route-key.pem:/certs/route-key.pem"
+networks:
+  default:
+    external:
+      name: nats-cluster
