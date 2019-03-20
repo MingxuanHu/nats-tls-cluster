@@ -9,12 +9,11 @@ services:
       - "~/nats/nats-tls-cluster/certs/server.pem:/certs/server.pem"
       - "~/nats/nats-tls-cluster/certs/server-key.pem:/certs/server-key.pem"
       - "~/nats/nats-tls-cluster/certs/ca.pem:/certs/ca.pem"
-      - "~/nats/nats-tls-cluster/certs/route.pem:/certs/route-docker-swarm.pem"
-      - "~/nats/nats-tls-cluster/certs/route-key.pem:/certs/route-docker-swarm-key.pem"
+      - "~/nats/nats-tls-cluster/certs/route-docker-swarm.pem:/certs/route-docker-swarm.pem"
+      - "~/nats/nats-tls-cluster/certs/route-docker-swarm-key.pem:/certs/route-docker-swarm-key.pem"
     ports:
-      - "4222:4222"
-      - "6222:6222"
-      - "8222:8222"
+      - "4221:4222"
+      - "8221:8222"
   nats2:
     image: nats:latest
     hostname: nats2.my-nats-cluster
@@ -24,8 +23,11 @@ services:
       - "~/nats/nats-tls-cluster/certs/server.pem:/certs/server.pem"
       - "~/nats/nats-tls-cluster/certs/server-key.pem:/certs/server-key.pem"
       - "~/nats/nats-tls-cluster/certs/ca.pem:/certs/ca.pem"
-      - "~/nats/nats-tls-cluster/certs/route.pem:/certs/route-docker-swarm.pem"
-      - "~/nats/nats-tls-cluster/certs/route-key.pem:/certs/route-docker-swarm-key.pem"
+      - "~/nats/nats-tls-cluster/certs/route-docker-swarm.pem:/certs/route-docker-swarm.pem"
+      - "~/nats/nats-tls-cluster/certs/route-docker-swarm-key.pem:/certs/route-docker-swarm-key.pem"
+    ports:
+      - "4222:4222"
+      - "8222:8222"
   nats3:
     image: nats:latest
     hostname: nats3.my-nats-cluster
@@ -35,8 +37,11 @@ services:
       - "~/nats/nats-tls-cluster/certs/server.pem:/certs/server.pem"
       - "~/nats/nats-tls-cluster/certs/server-key.pem:/certs/server-key.pem"
       - "~/nats/nats-tls-cluster/certs/ca.pem:/certs/ca.pem"
-      - "~/nats/nats-tls-cluster/certs/route.pem:/certs/route-docker-swarm.pem"
-      - "~/nats/nats-tls-cluster/certs/route-key.pem:/certs/route-docker-swarm-key.pem"
+      - "~/nats/nats-tls-cluster/certs/route-docker-swarm.pem:/certs/route-docker-swarm.pem"
+      - "~/nats/nats-tls-cluster/certs/route-docker-swarm-key.pem:/certs/route-docker-swarm-key.pem"
+    ports:
+      - "4223:4222"
+      - "8223:8222"
 networks:
   default:
     external:
