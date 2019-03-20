@@ -7,12 +7,12 @@ services:
     volumes:
       - "~/nats/nats-tls-cluster/swarm.conf:/swarm.conf"
     ports:
-      - "4222:4221"
-      - "8222:8221"
+      - "4221:4222"
+      - "8221:8222"
   nats2:
     image: nats:latest
     hostname: nats2
-    command: "-c /tls-swarm.conf"
+    command: "-c /swarm.conf"
     volumes:
       - "~/nats/nats-tls-cluster/swarm.conf:/swarm.conf"
     ports:
@@ -21,12 +21,12 @@ services:
   nats3:
     image: nats:latest
     hostname: nats3
-    command: "-c /tls-swarm.conf"
+    command: "-c /swarm.conf"
     volumes:
       - "~/nats/nats-tls-cluster/swarm.conf:/swarm.conf"
     ports:
-      - "4222:4223"
-      - "8222:8223"
+      - "4223:4222"
+      - "8223:8222"
 networks:
   default:
     external:
